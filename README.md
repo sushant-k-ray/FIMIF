@@ -12,7 +12,7 @@ Lightweight multimodal classifier for meme understanding (Hate, Target, Stance, 
 
 ---
 
-## 🧩 File Structure
+##  File Structure
 
 | File/Folder                           | Description                                                          |
 |---------------------------------------|----------------------------------------------------------------------|
