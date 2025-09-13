@@ -1,0 +1,6 @@
+hidden_dim: 16
+lr: 1e-3
+l1reg: 0
+l2reg: 0
+Weighted Loss: No
+Upsampling: No

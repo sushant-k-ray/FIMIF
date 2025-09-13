@@ -1,0 +1,31 @@
+Hate:
+hidden_dim: 16
+lr: 1e-3
+l1reg: 0
+l2reg: 0
+Weighted Loss: Yes
+Upsampling: No
+
+Target:
+hidden_dim: 8
+lr: 1e-4
+l1reg: 1e-4
+l2reg: 1e-4
+Weighted Loss: No
+Upsampling: No
+
+Stance:
+hidden_dim: 8
+lr: 1e-4
+l1reg: 1e-4
+l2reg: 0
+Weighted Loss: Yes
+Upsampling: No
+
+Humour:
+hidden_dim: 8
+lr: 1e-4
+l1reg: 0
+l2reg: 1e-4
+Weighted Loss: Yes
+Upsampling: No
