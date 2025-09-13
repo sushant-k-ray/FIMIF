@@ -16,25 +16,27 @@ Lightweight multimodal classifier for meme understanding (Hate, Target, Stance, 
 FIMIF/
 ├─ models/
 │ ├─ PrideMM/
-│ │ ├─ hate.pth
-│ │ ├─ target.pth
-│ │ ├─ stance.pth
-│ │ ├─ humour.pth
-│ │ └─ parameters.txt
+│ │ ├─ hate.pth # Head weights for Subtask A (Hate)
+│ │ ├─ target.pth # Head weights for Subtask B (Target)
+│ │ ├─ stance.pth # Head weights for Subtask C (Stance)
+│ │ ├─ humour.pth # Head weights for Subtask D (Humour)
+│ │ └─ parameters.txt # Hyperparameters used to train the above heads
 │ ├─ HarMeme-C/
-│ │ ├─ model.pth
-│ │ └─ parameters.txt
+│ │ ├─ model.pth # Head weights for HarMeme‑C binary task
+│ │ └─ parameters.txt # Hyperparameters for HarMeme‑C
 │ └─ shared task (submission)/
 │ ├─ hate.pth
 │ ├─ target.pth
 │ ├─ stance.pth
 │ ├─ humour.pth
 │ └─ parameters.txt
+│
 ├─ src/
-│ ├─ configs.py
-│ ├─ datasets.py
-│ ├─ main.py
-│ └─ models.py
+│ ├─ configs.py # YACS config: paths, task, h, LR, epochs, etc.
+│ ├─ datasets.py # CLIP preprocessing, CSV loader, concat(IMG|TXT)
+│ ├─ main.py # Train/val/test entrypoint (Lightning)
+│ └─ models.py # Residual projection + FIM + classifier head
+│
 ├─ LICENSE
 └─ README.md
 
