@@ -12,7 +12,8 @@ Lightweight multimodal classifier for meme understanding (Hate, Target, Stance, 
 
 ---
 
-### Repository structure
+### File structure
+
 FIMIF/
 ├─ models/
 │ ├─ PrideMM/
@@ -21,9 +22,11 @@ FIMIF/
 │ │ ├─ stance.pth # Head weights for Subtask C (Stance)
 │ │ ├─ humour.pth # Head weights for Subtask D (Humour)
 │ │ └─ parameters.txt # Hyperparameters used to train the above heads
+│ │
 │ ├─ HarMeme-C/
 │ │ ├─ model.pth # Head weights for HarMeme‑C binary task
 │ │ └─ parameters.txt # Hyperparameters for HarMeme‑C
+│ │
 │ └─ shared task (submission)/
 │ ├─ hate.pth
 │ ├─ target.pth
@@ -40,9 +43,12 @@ FIMIF/
 ├─ LICENSE
 └─ README.md
 
-text
 
----
+
+**Notes:**
+- All `.pth` files are state_dicts for the lightweight fusion head (CLIP is loaded frozen at runtime)
+- `parameters.txt` records the hidden size `h` and other run metadata to reproduce inference
+- `datasets.py` concatenates normalized image and text embeddings once (768+768=1536), then projects to a very small `h` to keep parameter count minimal
 
 ### Installation
 Requirements (Python 3.10+ recommended):
