@@ -12,36 +12,34 @@ Lightweight multimodal classifier for meme understanding (Hate, Target, Stance, 
 
 ---
 
-### File structure
+## 🧩 File Structure
 
-FIMIF/
-├─ models/
-│ ├─ PrideMM/
-│ │ ├─ hate.pth # Head weights for Subtask A (Hate)
-│ │ ├─ target.pth # Head weights for Subtask B (Target)
-│ │ ├─ stance.pth # Head weights for Subtask C (Stance)
-│ │ ├─ humour.pth # Head weights for Subtask D (Humour)
-│ │ └─ parameters.txt # Hyperparameters used to train the above heads
-│ │
-│ ├─ HarMeme-C/
-│ │ ├─ model.pth # Head weights for HarMeme‑C binary task
-│ │ └─ parameters.txt # Hyperparameters for HarMeme‑C
-│ │
-│ └─ shared task (submission)/
-│ ├─ hate.pth
-│ ├─ target.pth
-│ ├─ stance.pth
-│ ├─ humour.pth
-│ └─ parameters.txt
-│
-├─ src/
-│ ├─ configs.py # YACS config: paths, task, h, LR, epochs, etc.
-│ ├─ datasets.py # CLIP preprocessing, CSV loader, concat(IMG|TXT)
-│ ├─ main.py # Train/val/test entrypoint (Lightning)
-│ └─ models.py # Residual projection + FIM + classifier head
-│
-├─ LICENSE
-└─ README.md
+| File/Folder                           | Description                                                          |
+|---------------------------------------|----------------------------------------------------------------------|
+| `models/`                            | Pre-trained model checkpoints and hyperparameters                   |
+| `models/PrideMM/`                    | Checkpoints for PrideMM dataset (all 4 subtasks)                   |
+| `models/PrideMM/hate.pth`            | Head weights for Subtask A (Hate Detection)                        |
+| `models/PrideMM/target.pth`          | Head weights for Subtask B (Target Identification)                 |
+| `models/PrideMM/stance.pth`          | Head weights for Subtask C (Stance Detection)                      |
+| `models/PrideMM/humour.pth`          | Head weights for Subtask D (Humour Detection)                      |
+| `models/PrideMM/parameters.txt`      | Hyperparameters used for PrideMM experiments                       |
+| `models/HarMeme-C/`                  | Checkpoints for HarMeme-C binary classification                    |
+| `models/HarMeme-C/model.pth`         | Head weights for HarMeme-C hate detection task                     |
+| `models/HarMeme-C/parameters.txt`    | Hyperparameters used for HarMeme-C experiments                     |
+| `models/shared task (submission)/`   | Official CASE 2025 submission checkpoints                          |
+| `src/`                               | Source code and implementation                                       |
+| `src/configs.py`                     | YACS configuration: paths, task settings, hyperparameters          |
+| `src/datasets.py`                    | Data loading, CLIP preprocessing, embedding concatenation           |
+| `src/main.py`                        | Main training/evaluation script using PyTorch Lightning            |
+| `src/models.py`                      | Model architecture: residual projection + FIM + classifier         |
+| `LICENSE`                            | License information                                                  |
+| `README.md`                          | Project documentation and usage instructions                        |
+
+**Notes:**
+- All `.pth` files contain state_dicts for the lightweight fusion head (~25k-51k parameters)
+- CLIP encoders are loaded frozen at runtime and don't require separate checkpoints
+- `parameters.txt` files store the hidden dimension `h` and other metadata for reproducible inference
+
 
 
 
