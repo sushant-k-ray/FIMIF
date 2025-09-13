@@ -35,13 +35,6 @@ Lightweight multimodal classifier for meme understanding (Hate, Target, Stance, 
 | `LICENSE`                            | License information                                                  |
 | `README.md`                          | Project documentation and usage instructions                        |
 
-**Notes:**
-- All `.pth` files contain state_dicts for the lightweight fusion head (~25k-51k parameters)
-- CLIP encoders are loaded frozen at runtime and don't require separate checkpoints
-- `parameters.txt` files store the hidden dimension `h` and other metadata for reproducible inference
-
-
-
 
 **Notes:**
 - All `.pth` files are state_dicts for the lightweight fusion head (CLIP is loaded frozen at runtime)
